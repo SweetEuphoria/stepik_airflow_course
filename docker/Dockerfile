@@ -12,7 +12,6 @@ RUN pip install SQLAlchemy==1.3.23
 
 # Создаем директрию для скриптов
 RUN mkdir /project
-RUN mkdir /project/scripts
 
 # Копируем скрипты и конфиг файл
 COPY script/ /project/scripts/
