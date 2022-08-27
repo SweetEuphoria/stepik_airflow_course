@@ -18,7 +18,7 @@ COPY script/ /project/scripts/
 COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 
 # Доступы для скрипта
-RUN sudo chmod +x /project/scripts/init.sh
+RUN chmod +x /project/scripts/init.sh
 
 # Запускаем sh скрипт
 ENTRYPOINT ["/project/scripts/init.sh"]
