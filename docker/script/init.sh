@@ -2,8 +2,8 @@
 
 # Создание БД
 sleep 10
-airflow upgradedb
+sudo airflow upgradedb
 sleep 10
 
 # Запуск шедулера и вебсервера
-airflow scheduler & airflow webserver
+sudo airflow scheduler & airflow webserver
