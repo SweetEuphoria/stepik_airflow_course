@@ -11,7 +11,7 @@ RUN pip install apache-airflow[postgres]==${AIRFLOW_VERSION}
 RUN pip install SQLAlchemy==1.3.23
 
 # Создаем директрию для скриптов
-RUN mkdir /project
+RUN mkdir /project/scripts
 
 # Копируем скрипты и конфиг файл
 COPY script/ /project/scripts/
@@ -21,4 +21,4 @@ COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 RUN chmod +x /project/scripts/init.sh
 
 # Запускаем sh скрипт
-ENTRYPOINT ["/script/init.sh"]
+ENTRYPOINT ["/project/scripts/init.sh"]
