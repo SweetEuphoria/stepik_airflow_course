@@ -12,13 +12,14 @@ RUN pip install SQLAlchemy==1.3.23
 
 # Создаем директрию для скриптов
 RUN mkdir /project
+WORKDIR /project
 
 # Копируем скрипты и конфиг файл
-COPY script/init.sh /project/scripts/
+COPY script/ /project/scripts/
 COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 
 # Доступы для скрипта
-RUN chmod +x /project/scripts/init.sh
+RUN chmod +x /scripts/init.sh
 
 # Запускаем sh скрипт
-ENTRYPOINT ["/project/scripts/init.sh"]
+ENTRYPOINT "/scripts/init.sh"
