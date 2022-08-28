@@ -6,13 +6,15 @@ ENV AIRFLOW_HOME=${AIRFLOW_USER_HOME}
 
 RUN pip install apache-airflow[postgres]==${AIRFLOW_VERSION}
 RUN pip install SQLAlchemy==1.3.23
+RUN pip install markupsafe==2.0.1
+RUN pip install wtforms==2.3.3
 
 RUN mkdir /project
 
-COPY script/ /project/
+COPY script/ /project/scripts/
 COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 
 RUN chmod +x /project/init.sh
 
 # Запускаем sh скрипт
-ENTRYPOINT ["/project/init.sh"]
+ENTRYPOINT ["/project/scripts/init.sh"]
